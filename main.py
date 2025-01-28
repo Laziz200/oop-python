@@ -73,7 +73,7 @@ source_card_choice = int(input("Qaysi kartadan pul o'tkazmoqchisiz (1 - Aloqa, 2
 if source_card_choice == 1 and c1.money >= d:
     target_card_choice = int(input("Pulni qaysi kartaga o'tkazmoqchisiz (1 - Aloqa, 2 - SQB): "))
     if target_card_choice == 1:
-        print("Xatolik! O'zingizdan o'zingizga pul o'tkazolmasiz.")
+        print("O'zingizdan o'zingizga pul o'tkazolmasiz.")
     elif target_card_choice == 2:
         if account.transfer_money(c1, c2, d):
             print("otkazma muvaffaqiyatli amalga oshirildi")
@@ -82,7 +82,7 @@ if source_card_choice == 1 and c1.money >= d:
 if source_card_choice == 2 and c2.money >= d:
     target_card_choice = int(input("Pulni qaysi kartaga o'tkazmoqchisiz? (1 - Aloqa, 2 - SQB): "))
     if target_card_choice == 2:
-        print("Xatolik! O'zingizdan o'zingizga pul o'tkazolmasiz.")
+        print("O'zingizdan o'zingizga pul o'tkazolmasiz.")
     elif target_card_choice == 1:
         if account.transfer_money(c2, c1, d):
             print("otkazma muvaffaqiyatli amalga oshirildi")
