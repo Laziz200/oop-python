@@ -79,12 +79,12 @@ if source_card_choice == 1 and c1.money >= d:
             print("otkazma muvaffaqiyatli amalga oshirildi")
         else:
             print("Balansda yetarli mablag' yo'q")
-if source_card_choice == 1 and c1.money >= d:
-    target_card_choice = int(input("Pulni qaysi kartaga o'tkazmoqchisiz (1 - Aloqa, 2 - SQB): "))
-    if target_card_choice == 1:
+if source_card_choice == 2 and c2.money >= d:
+    target_card_choice = int(input("Pulni qaysi kartaga o'tkazmoqchisiz? (1 - Aloqa, 2 - SQB): "))
+    if target_card_choice == 2:
         print("Xatolik! O'zingizdan o'zingizga pul o'tkazolmasiz.")
-    elif target_card_choice == 2:
-        if account.transfer_money(c1, c2, d):
+    elif target_card_choice == 1:
+        if account.transfer_money(c2, c1, d):
             print("otkazma muvaffaqiyatli amalga oshirildi")
         else:
             print("Balansda yetarli mablag' yo'q")
