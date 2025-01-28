@@ -51,10 +51,38 @@ types = [CardType("Humo"), CardType("Uzcard"), CardType("Visa")]
 
 
 account = Account("ali", "vali", "+998881234567")
-c1 = AloqaBankCard('olyik', 2345123451234123, 566, datetime(2029, 12, 12), 1200000, types[0])
-c2 = SQBBankCard('bissness', 4132413241234, 435, datetime(2030, 12, 12), 235400000, types[2])
+c1 = AloqaBankCard('olyik', 2345123451234123, 566, datetime(2029, 12, 12), 100, types[0])
+c2 = SQBBankCard('bissness', 4132413241234, 435, datetime(2030, 12, 12), 50, types[2])
 
 account.add_card(c1)
 account.add_card(c2)
 
-print(account.get_balans())
+
+def transfer_money(self, from_card: Card, to_card: Card, amount: float) -> bool:
+    if from_card.money >= amount:
+        from_card.money -= amount
+        to_card.money += amount
+        return True
+    return False
+
+Account.transfer_money = transfer_money
+
+
+print("1. Aloqa bank kartasi: ", c1.money)
+print("2.SQB bank kartasi: ", c2.money)
+print(f"Jami Balans: {account.get_balans()}")
+
+d=float(input("Qancha pul otkazmoqchisiz: "))
+
+if account.get_balans() > 0:
+
+    c3 = NBUBankCard('personal', 1234567890123456, 123, datetime(2025, 5, 5), d, types[1])
+    account.add_card(c3)
+else:
+    print("Balansda yetarli mablag' yo'q")
+
+if account.get_balans() > 0:
+    print("Transfer successful")
+    print(f"Jami Balans: {account.get_balans()}")
+else:
+    print("Balansda yetarli mablag' yo'q")
